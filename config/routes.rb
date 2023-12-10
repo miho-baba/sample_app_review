@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'lists/new'
   get 'lists' => 'lists#index'
-  get 'lists/:id' => 'lists#show'
+  get 'lists/:id' => 'lists#show', as: 'list'
   get 'lists/edit'
   get '/top' => 'homes#top'
   post 'lists' => 'lists#create' # 投稿機能のためのルーティング
