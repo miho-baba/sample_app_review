@@ -25,6 +25,10 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
   end
 
+  def update # 編集機能の更新の記述
+    list = List.find(params[:id])
+    list.update(list_params)
+    redirect_to list_path(list.id)
   private
   # ストロングパラメータ
   def list_params
