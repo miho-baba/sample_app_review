@@ -9,6 +9,7 @@
   <%= f.text_area :body %>
 
   <h4>画像</h4>
+  <!-- 画像ファイルのみ投稿できるようにする-->
   <%= f.file_field :image, accept: "image/*"
 
   <%= f.submit '投稿' %>
