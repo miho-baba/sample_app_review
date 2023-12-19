@@ -12,8 +12,9 @@ class ListsController < ApplicationController
       redirect_to list_path(@list.id)
     # 対象のカラムにデータが入力されていなければ、saveメソッドでfalseが返す。
     else
-      # falseならば、新規投稿ページを再表示するように設定する
-      render :new
+      # falseならば、新規投稿ページを再表示するように設定
+      @lists = List.all
+      render :index
     end
   end
 
