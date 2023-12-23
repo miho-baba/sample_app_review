@@ -14,7 +14,7 @@ class ListsController < ApplicationController
     # 対象のカラムにデータが入力されていなければ、saveメソッドでfalseが返す。
     else
       # falseならば、新規投稿ページを再表示するように設定
-      flash[:notice] = "投稿に失敗しました。"
+      flash.now[:alert] = "投稿に失敗しました。"
       render :new
     end
   end
