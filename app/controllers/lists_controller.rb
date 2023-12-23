@@ -8,11 +8,13 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     # if式を用いて、対象のカラムにデータが入力されていればsaveメソッドでtrueが返す。
     if @list.save
-      # 次に表示したいページにリダイレクトさせる。
+      # 次に表示したいページにリダイレクトし、フラッシュメッセージを表示させる。
+      flash[:notice] = "投稿に成功しました。"
       redirect_to list_path(@list.id)
     # 対象のカラムにデータが入力されていなければ、saveメソッドでfalseが返す。
     else
       # falseならば、新規投稿ページを再表示するように設定
+      flash[:notice] = "投稿に失敗しました。"
       render :new
     end
   end
